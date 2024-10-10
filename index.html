@@ -28,8 +28,10 @@
     />
   </head>
   <body class="font-[Poppins]">
-    <header class="w-10/12 mx-auto">
-      <nav class="flex justify-between py-8 items-center">
+    <header>
+      <nav
+        class="flex justify-between py-8 items-center w-11/12 lg:w-10/12 mx-auto"
+      >
         <div>
           <h1 class="text-2xl font-bold text-[#403F3F]">Velvet Bistro</h1>
         </div>
@@ -39,6 +41,38 @@
           </button>
         </div>
       </nav>
+      <!-- banner section -->
+      <section>
+        <div
+          class="bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('./images/banner_1.png')] bg-cover flex items-center lg:h-[600px] justify-center text-white"
+        >
+          <div class="text-center py-10 space-y-6 w-11/12 lg:w-10/12 mx-auto">
+            <h2 class="text-6xl font-bold">Taste Our Delicious Best Foods</h2>
+            <p class="">
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humou.
+            </p>
+            <div class="flex justify-center items-center">
+              <fieldset class="form-control">
+                <div class="join relative">
+                  <i
+                    class="fa-solid fa-magnifying-glass absolute z-50 left-2 text-black top-4"
+                  ></i>
+                  <input
+                    type="text"
+                    placeholder="    Search any food"
+                    class="input join-item lg:w-[600px]"
+                  />
+                  <button class="btn bg-[#FFC107] join-item border-none">
+                    Search
+                  </button>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
   </body>
 </html>
