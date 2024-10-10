@@ -80,10 +80,53 @@
         class="w-11/12 lg:w-10/12 mx-auto mt-10 flex flex-col items-center"
       >
         <h2 class="text-center font-semibold text-4xl my-10">Our Menu</h2>
-        <div id="menu-container" class="grid grid-cols-2 gap-8"></div>
+        <div
+          id="menu-container"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        ></div>
         <button id="show-all" class="btn mt-10 bg-[#FFC107]">Show all</button>
       </section>
     </main>
+    <section class="bg-[rgba(255,193,7,0.05)] text-base-content p-10 mt-10">
+      <footer class="footer w-11/12 lg:w-10/12 mx-auto py-10">
+        <nav>
+          <h6 class="footer-title">Services</h6>
+          <a class="link link-hover">Branding</a>
+          <a class="link link-hover">Design</a>
+          <a class="link link-hover">Marketing</a>
+          <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Company</h6>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Contact</a>
+          <a class="link link-hover">Jobs</a>
+          <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Legal</h6>
+          <a class="link link-hover">Terms of use</a>
+          <a class="link link-hover">Privacy policy</a>
+          <a class="link link-hover">Cookie policy</a>
+        </nav>
+        <form>
+          <h6 class="footer-title">Newsletter</h6>
+          <fieldset class="form-control w-80">
+            <label class="label">
+              <span class="label-text">Enter your email address</span>
+            </label>
+            <div class="join">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                class="input input-bordered join-item"
+              />
+              <button class="btn btn-primary join-item">Subscribe</button>
+            </div>
+          </fieldset>
+        </form>
+      </footer>
+    </section>
     <script src="./app.js"></script>
   </body>
 </html>
