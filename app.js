@@ -28,6 +28,15 @@ const showMealDetails = (data) => {
         .then(data => showFoodDetails(data.meals[0]))
 }
 
+// get food by search
+const mealSearch = (search) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+        .then(res => res.json())
+        .then(data => {
+            categoryWiseFood(data.meals)
+        })
+}
+
 // show food details
 
 const showFoodDetails = (data) => {
@@ -42,6 +51,7 @@ const showFoodDetails = (data) => {
 
 // display category wise food
 const categoryWiseFood = (data) => {
+    console.log(data);
     const menuContainer = document.getElementById('menu-container');
     menuContainer.classList.remove('grid');
     menuContainer.innerHTML = "";
@@ -50,7 +60,7 @@ const categoryWiseFood = (data) => {
      <span class="loading loading-infinity loading-2xl"></span>
     `
     menuContainer.appendChild(spanner);
-    setInterval(() => {
+    setTimeout(() => {
         menuContainer.classList.add('grid');
         menuContainer.innerHTML = "";
         document.getElementById('show-all').classList.add('hidden');
@@ -62,8 +72,8 @@ const categoryWiseFood = (data) => {
             <img class="w-full rounded-lg" src="${food.strMealThumb}" alt="" />
           </div>
           <div class="space-y-3 flex-1">
-            <h2 class="font-bold text-2xl">Meal ID: ${food.strMeal}</h2>
-            <p class="text-[#706F6F]">
+            <h2 class="font-bold text-2xl">${food.strMeal}</h2>
+            <p class="text-[#706F6F]"> Meal ID:
             ${food.idMeal}
             </p>
               <button onclick="showMealDetails('${food.idMeal}')"
@@ -81,8 +91,8 @@ const categoryWiseFood = (data) => {
 }
 
 
-// 
 const displayAllCategory = (meals) => {
+
     const menuContainer = document.getElementById('menu-container');
     menuContainer.innerHTML = "";
     meals.forEach(element => {
@@ -122,5 +132,11 @@ document.getElementById('show-all').addEventListener('click', () => {
 const getAllMeal = (data) => {
     displayAllFoodByCategory(data);
 }
+
+// search btn
+document.getElementById('search-btn').addEventListener('click', () => {
+    const searchText = document.getElementById('search-input').value;
+    mealSearch(searchText);
+})
 
 getAllMenu()
