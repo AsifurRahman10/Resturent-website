@@ -55,16 +55,19 @@
             </p>
             <div class="flex justify-center items-center">
               <fieldset class="form-control">
-                <div class="join relative">
+                <div class="join relative text-black">
                   <i
                     class="fa-solid fa-magnifying-glass absolute z-50 left-2 text-black top-4"
                   ></i>
                   <input
                     type="text"
                     placeholder="    Search any food"
-                    class="input join-item lg:w-[600px]"
+                    class="input input-bordered join-item lg:w-[600px] pl-8"
                   />
-                  <button class="btn bg-[#FFC107] join-item border-none">
+                  <button
+                    id="search-btn"
+                    class="btn bg-[#FFC107] join-item border-none"
+                  >
                     Search
                   </button>
                 </div>
@@ -80,13 +83,45 @@
         class="w-11/12 lg:w-10/12 mx-auto mt-10 flex flex-col items-center"
       >
         <h2 class="text-center font-semibold text-4xl my-10">Our Menu</h2>
-        <div
-          id="menu-container"
-          class="grid grid-cols-1 lg:grid-cols-2 gap-8"
-        ></div>
+        <div id="menu-container" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- <div class=""></div> -->
+        </div>
         <button id="show-all" class="btn mt-10 bg-[#FFC107]">Show all</button>
       </section>
     </main>
+    <section id="modal">
+      <dialog id="my_modal_1" class="modal">
+        <div class="modal-box lg:max-w-[50rem]">
+          <h3 class="text-lg font-bold pb-4" id="meal-Name">Chicken Handi</h3>
+          <hr />
+          <img id="img-modal" class="mt-4" src="" alt="" />
+          <p class="py-1">
+            <span class="font-semibold text-xl">Category :</span>
+            <span id="Category"></span>
+          </p>
+          <p class="py-1">
+            <span class="font-semibold text-xl">Area</span> : Japanese
+          </p>
+          <p class="py-1">
+            <span class="font-semibold text-xl">Instructions</span> : AThere are
+            many variations of passages of Lorem Ipsum available, but the
+            majority have suffered alteration in some form, by injected humour,
+            or randomised words which don't look even slightly believable.
+          </p>
+          <p class="py-1">
+            <span class="font-semibold text-xl">Youtube</span>
+            :https://www.youtube.com/watch?v=WnpbKoYhTEY
+          </p>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn bg-[#DC3545] text-white px-8">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </section>
+    <!-- footer -->
     <section class="bg-[rgba(255,193,7,0.05)] text-base-content p-10 mt-10">
       <footer class="footer w-11/12 lg:w-10/12 mx-auto py-10">
         <nav>
