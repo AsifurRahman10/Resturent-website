@@ -1,3 +1,4 @@
+let sortValue = []
 // get all category
 const getAllMenu = (dataBtn = false) => {
     fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -15,9 +16,13 @@ const getAllMenu = (dataBtn = false) => {
 
 // get category wise food
 const displayAllFoodByCategory = (category) => {
+
     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(res => res.json())
-        .then(data => categoryWiseFood(data.meals))
+        .then(data => {
+            sortValue = data.meals;
+            categoryWiseFood(sortValue)
+        })
 }
 
 // get food details
@@ -37,6 +42,20 @@ const mealSearch = (search) => {
         })
 }
 
+// sort btn
+document.getElementById('sort-btn').addEventListener('click', () => {
+    const sortedDownValue = sortValue.sort((a, b) => {
+        if (a.strMeal < b.strMeal) {
+            return -1; // t1 comes before t2
+        }
+        if (a.strMeal > b.strMeal) {
+            return 1; // t1 comes after t2
+        }
+        return 0; // They are equal
+    })
+    categoryWiseFood(sortedDownValue);
+})
+
 // show food details
 
 const showFoodDetails = (data) => {
@@ -51,7 +70,7 @@ const showFoodDetails = (data) => {
 
 // display category wise food
 const categoryWiseFood = (data) => {
-    console.log(data);
+    document.getElementById('sort-btn').disabled = false;
     const menuContainer = document.getElementById('menu-container');
     menuContainer.classList.remove('grid');
     menuContainer.innerHTML = "";
